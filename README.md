@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./frontend/public/icons.svg" width="120" height="120" alt="Bloopa Logo" />
+  <img src="./frontend/public/favicon.svg" width="120" height="120" alt="Bloopa Logo" />
   <h1>Bloopa</h1>
   <p><strong>On-chain Reputation & Credit Protocol for AI Agents</strong></p>
   
