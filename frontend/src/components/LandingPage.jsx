@@ -169,8 +169,8 @@ export default function LandingPage({ onLaunchApp }) {
       <ParticleField />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative pt-24 md:pt-32 pb-20 px-4">
-        <div className="max-w-[960px] mx-auto text-center">
+      <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-4">
+        <div className="max-w-[960px] mx-auto text-center w-full">
           <NetworkBadge />
 
           <h1 className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[0.95] mt-8 mb-6">
