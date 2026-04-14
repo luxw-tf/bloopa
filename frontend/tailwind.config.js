@@ -7,28 +7,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:       "#0a0a0f",
-        surface:  "#0f0f17",
-        elevated: "#13131e",
-        border:   "#1a1a2e",
-        accent:   "#6366f1",
-        "accent-hover": "#4f46e5",
-        "accent-dim": "rgba(99,102,241,0.125)",
-        success:  "#22c55e",
-        "success-dim": "rgba(34,197,94,0.094)",
-        danger:   "#ef4444",
-        "danger-dim": "rgba(239,68,68,0.094)",
-        warning:  "#f59e0b",
-        "warning-dim": "rgba(245,158,11,0.094)",
-        muted:    "#8888aa",
-        "text-muted": "#44445a",
-        "text-primary": "#f0f0ff",
-        "text-secondary": "#8888aa",
+        bg:       "#fdfbf7",
+        surface:  "#ffffff",
+        elevated: "#f4f0e6",
+        border:   "#000000",
+        accent:   "#bbf7d0", // Light playful green
+        "accent-hover": "#86efac",
+        "accent-dim": "#f0fdf4",
+        success:  "#93c5fd", // Playful blue
+        "success-dim": "#eff6ff",
+        danger:   "#fca5a5", // Playful red
+        "danger-dim": "#fef2f2",
+        warning:  "#fde047", // Playful yellow
+        "warning-dim": "#fefce8",
+        muted:    "#d4d4d4",
+        "text-muted": "#737373",
+        "text-primary": "#000000",
+        "text-secondary": "#404040",
       },
       fontFamily: {
         display: ["Syne", "sans-serif"],
         sans:    ["DM Sans", "sans-serif"],
         mono:    ["JetBrains Mono", "Fira Code", "Courier New", "monospace"],
+        pixel:   ["VT323", "Courier New", "monospace"], // Playful pixel font
+        hand:    ["Caveat", "Comic Sans MS", "cursive", "sans-serif"], // Handwriting
+      },
+      boxShadow: {
+        'brutalist-sm': '2px 2px 0px 0px rgba(0,0,0,1)',
+        'brutalist': '4px 4px 0px 0px rgba(0,0,0,1)',
+        'brutalist-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
       },
       animation: {
         shimmer:      "shimmer 1.5s infinite",
@@ -36,12 +43,17 @@ export default {
         "flash-red":  "flash-red 1.5s ease-out",
         "spin-slow":  "spin 0.8s linear infinite",
         "pulse-dot":  "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite",
+        "marquee":    "marquee 20s linear infinite",
       },
       keyframes: {
         shimmer: {
           "0%":   { backgroundPosition: "200% 0" },
           "100%": { backgroundPosition: "-200% 0" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        }
       },
       spacing: {
         "xs": "4px",

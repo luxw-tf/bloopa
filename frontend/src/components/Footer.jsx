@@ -4,9 +4,6 @@
  * Left:   Live round number from algodClient.status()
  * Center: App ID with explorer link
  * Right:  Treasury balance (placeholder until global state read)
- *
- * All text: mono 11px --text-muted
- * Round number pulses on each block refresh.
  */
 
 import React, { useState, useEffect, useRef } from "react";
@@ -39,42 +36,35 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer
-      className="fixed bottom-0 left-0 right-0 z-50 h-8 flex items-center justify-between px-4 md:px-6"
-      style={{
-        background: "var(--bg-surface)",
-        borderTop: "1px solid var(--bg-border)",
-      }}
-    >
-      {/* Left — Round number */}
-      <span
-        className="font-mono text-[11px] transition-opacity duration-500"
-        style={{
-          color: "var(--text-muted)",
-          opacity: pulsing ? 1 : 0.6,
-        }}
-      >
-        {round ? `ROUND ${fmtRound(round)}` : "CONNECTING..."}
-      </span>
+    <footer className="fixed bottom-0 left-0 right-0 z-40 p-2 md:p-4 px-4 pointer-events-none">
+      <div className="max-w-[1240px] mx-auto pointer-events-auto h-10 bg-white border-[3px] border-black shadow-brutalist flex items-center justify-between px-4">
+        {/* Left — Round number */}
+        <span
+          className="font-pixel text-lg text-black font-bold flex items-center gap-2"
+          style={{
+            opacity: pulsing ? 1 : 0.6,
+            transition: "opacity 0.2s"
+          }}
+        >
+          <span className={`w-2 h-2 rounded-full border border-black ${pulsing ? 'bg-success' : 'bg-gray-200'}`}></span>
+          {round ? `ROUND ${fmtRound(round)}` : "CONNECTING..."}
+        </span>
 
-      {/* Center — App ID */}
-      <a
-        href={`https://testnet.explorer.perawallet.app/application/${APP_ID}/`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-mono text-[11px] transition-colors duration-150 hover:text-[var(--accent)]"
-        style={{ color: "var(--text-muted)" }}
-      >
-        APP {APP_ID}
-      </a>
+        {/* Center — App ID */}
+        <a
+          href={`https://testnet.explorer.perawallet.app/application/${APP_ID}/`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-pixel text-lg text-black font-bold flex items-center gap-1 hover:bg-warning px-2 border-2 border-transparent hover:border-black transition-all"
+        >
+          APP {APP_ID}
+        </a>
 
-      {/* Right — Network indicator */}
-      <span
-        className="font-mono text-[11px]"
-        style={{ color: "var(--text-muted)" }}
-      >
-        ALGORAND TESTNET
-      </span>
+        {/* Right — Network indicator */}
+        <span className="font-pixel text-lg text-black font-bold hidden sm:block bg-accent-dim border-[2px] border-black px-2 shadow-brutalist-sm rotate-1">
+          ALGORAND TESTNET
+        </span>
+      </div>
     </footer>
   );
 }

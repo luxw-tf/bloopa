@@ -1,28 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=VT323&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg-base:        #0a0a0f;
-  --bg-surface:     #0f0f17;
-  --bg-elevated:    #13131e;
-  --bg-border:      #1a1a2e;
-  --text-primary:   #f0f0ff;
-  --text-secondary: #8888aa;
-  --text-muted:     #44445a;
-  --accent:         #6366f1;
-  --accent-dim:     #6366f120;
-  --accent-hover:   #4f46e5;
-  --success:        #22c55e;
-  --success-dim:    #22c55e18;
-  --danger:         #ef4444;
-  --danger-dim:     #ef444418;
-  --warning:        #f59e0b;
-  --warning-dim:    #f59e0b18;
+  --bg-base:        #fdfbf7;
+  --bg-surface:     #ffffff;
+  --bg-elevated:    #ffffff;
+  --bg-border:      #000000;
+  --text-primary:   #000000;
+  --text-secondary: #404040;
+  --text-muted:     #737373;
+  --accent:         #bbf7d0;
+  --accent-dim:     #f0fdf4;
+  --accent-hover:   #86efac;
+  --success:        #93c5fd;
+  --success-dim:    #eff6ff;
+  --danger:         #fca5a5;
+  --danger-dim:     #fef2f2;
+  --warning:        #fde047;
+  --warning-dim:    #fefce8;
   --mono:           "JetBrains Mono", "Fira Code", "Courier New", monospace;
   --font-display:   "Syne", sans-serif;
   --font-body:      "DM Sans", sans-serif;
+  --font-pixel:     "VT323", monospace;
+  --font-hand:      "Caveat", cursive;
 }
 
 * {
@@ -46,16 +48,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle grid background on page */
+/* Scrapbook background */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(var(--bg-border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--bg-border) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.3;
+  background-image: url('/bg-landscape.png');
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.85; /* Keep it subtle enough for text */
   pointer-events: none;
   z-index: 0;
 }
@@ -66,12 +67,44 @@ body::before {
 }
 
 /* ── Typography Classes ── */
-.font-display {
-  font-family: var(--font-display);
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-pixel { font-family: var(--font-pixel); }
+.font-hand { font-family: var(--font-hand); }
+
+/* ── Sticker Brutalist classes ── */
+.sticker {
+  background: white;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  padding: 4px 12px;
+  display: inline-block;
+  transform: rotate(-1deg);
 }
 
-.font-body {
-  font-family: var(--font-body);
+.sticker-rotate {
+  transform: rotate(2deg);
+}
+
+.brutalist-card {
+  background: white;
+  border: 3px solid black;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease-out;
+}
+.brutalist-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+
+.brutalist-btn {
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.1s ease-out;
+}
+.brutalist-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
 }
 
 /* Monospace for ALL numbers */

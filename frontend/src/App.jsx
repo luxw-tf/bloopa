@@ -93,7 +93,7 @@ export default function App() {
   const showLoading = address && !hasFetched && loading;
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "var(--bg-base)" }}>
+    <div className="min-h-screen flex flex-col font-body bg-transparent">
       <Header onLogoClick={() => setShowApp(false)} />
 
       <main
